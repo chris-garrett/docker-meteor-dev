@@ -1,4 +1,6 @@
 FROM ubuntu:16.04
+MAINTAINER MacKay Law 
+LABEL description="Development Image"
 RUN update-locale LANG=C.UTF-8 LC_MESSAGES=POSIX
 RUN apt-get update && \
     apt-get install -y curl
