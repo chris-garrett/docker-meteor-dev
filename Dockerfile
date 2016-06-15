@@ -9,4 +9,4 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN curl https://install.meteor.com/ | sh
 WORKDIR /opt/app
 EXPOSE 3000
-CMD [ "meteor" ]
+ENTRYPOINT [ "meteor" ]
