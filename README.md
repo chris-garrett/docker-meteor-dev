@@ -1,19 +1,19 @@
 ## Versions
 - Ubuntu 16.04
-- Meteor 1.3.3
+- Meteor 1.3.4.4
 
 ## Usage
 
 Update node modules
 
-`docker run --rm mackay/meteor-dev npm install`
+`docker run --rm chrisgarrett/meteor-dev npm install`
 
 Run meteor
 
-`docker run -d --name meteor -v /home/chris/meteor:/opt/app mackay/meteor-dev`
+`docker run -d --name meteor -v /home/chris/meteor:/opt/app chrisgarrett/meteor-dev`
 
 Running a specific version of meteor
-`docker run -d --name meteor -v /home/chris/meteor:/opt/app mackay/meteor-dev --release 1.2.1`
+`docker run -d --name meteor -v /home/chris/meteor:/opt/app chrisgarrett/meteor-dev --release 1.2.1`
 
 ## Credits
 
