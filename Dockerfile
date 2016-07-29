@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 RUN update-locale LANG=C.UTF-8 LC_MESSAGES=POSIX
 RUN apt-get update && \
-    apt-get install -y curl
+    apt-get install -y curl vim
 RUN apt-get clean -y
 RUN apt-get autoclean -y
 RUN apt-get autoremove -y
