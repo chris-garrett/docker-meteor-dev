@@ -11,18 +11,16 @@ RUN rm -rf /var/lib/cache /var/lib/log
 RUN rm -rf /tmp/*
 RUN rm -rf /var/tmp/*
 
-ARG METEOR_VERSION
-
 MAINTAINER Chris Garrett (https://github.com/chris-garrett/docker-meteor-dev)
 
-LABEL description="Meteor $METEOR_VERSION Development Image"
+LABEL description="Meteor 1.4.1 Development Image"
 
 RUN curl https://install.meteor.com/ | sh
 
 ENV METEOR_LOG=debug 
 ENV METEOR_OFFLINE_CATALOG=1
 
-RUN METEOR_LOG=debug METEOR_OFFLINE_CATALOG=1 meteor create /opt/app --release $METEOR_VERSION
+RUN METEOR_LOG=debug METEOR_OFFLINE_CATALOG=1 meteor create /opt/app --release 1.4.1
 RUN rm -rf /opt/app
 
 WORKDIR /opt/app
