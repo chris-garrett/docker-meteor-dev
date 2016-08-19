@@ -1,7 +1,9 @@
 #!/bin/sh
 
-VERSION=1.3.4.4
-IMAGE_NAME=chrisgarrett/meteor-dev
+. ./config.sh
 
-docker build --build-arg METEOR_VERSION=$VERSION --rm=true -t $IMAGE_NAME:$VERSION .
+METEOR_VERSION=$VERSION envsubst < ./templates/Dockerfile.template > Dockerfile
+METEOR_VERSION=$VERSION envsubst < ./templates/README.template > README.md
+
+docker build --rm=true -t $IMAGE_NAME:$VERSION .
 
