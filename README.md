@@ -1,6 +1,6 @@
 ## Versions
 - Ubuntu 16.04
-- Meteor 1.4.1
+- Meteor 1.4.2
 
 ## Usage
 
@@ -18,4 +18,3 @@ Running a specific version of meteor
 ## Credits
 
 Used Rick Golden's Dockerfile as my source: https://hub.docker.com/r/golden/meteor-dev/
-
