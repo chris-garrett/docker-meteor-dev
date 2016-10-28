@@ -17,14 +17,19 @@ LABEL description="Meteor 1.4.2 Development Image"
 
 RUN curl https://install.meteor.com/ | sh
 
+RUN useradd -ms /bin/bash jeeves
+ENV HOME /home/jeeves
+RUN chown jeeves /home/jeeves /opt
+USER jeeves
+
 ENV METEOR_LOG=debug
 ENV METEOR_OFFLINE_CATALOG=1
 
-RUN METEOR_LOG=debug METEOR_OFFLINE_CATALOG=1 meteor create /opt/app --unsafe-perm --release 1.4.2
+RUN METEOR_LOG=debug METEOR_OFFLINE_CATALOG=1 meteor create /opt/app --release 1.4.2
 RUN rm -rf /opt/app
 
 WORKDIR /opt/app
 EXPOSE 3000
 
-ENTRYPOINT ["meteor", "--unsafe-perm"]
+ENTRYPOINT ["meteor"]
 CMD ["run"]
