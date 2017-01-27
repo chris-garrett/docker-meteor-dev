@@ -13,7 +13,7 @@ RUN rm -rf /var/tmp/*
 
 MAINTAINER Chris Garrett (https://github.com/chris-garrett/docker-meteor-dev)
 
-LABEL description="Meteor 1.4.2 Development Image"
+LABEL description="Meteor 1.4.2.3 Development Image"
 
 RUN curl https://install.meteor.com/ | sh
 
@@ -25,7 +25,7 @@ USER jeeves
 ENV METEOR_LOG=debug
 ENV METEOR_OFFLINE_CATALOG=1
 
-RUN METEOR_LOG=debug METEOR_OFFLINE_CATALOG=1 meteor create /opt/app --release 1.4.2
+RUN METEOR_LOG=debug METEOR_OFFLINE_CATALOG=1 meteor create /opt/app --release 1.4.2.3
 RUN rm -rf /opt/app
 
 WORKDIR /opt/app
