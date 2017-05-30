@@ -1,5 +1,5 @@
 
-VERSION=1.3.4.1
+VERSION=1.3.5.1
 IMAGE_NAME=chrisgarrett/meteor-dev
 
 build:
@@ -8,11 +8,11 @@ build:
 
 	docker build --rm=true -t ${IMAGE_NAME}:${VERSION} .
 
-run:
-	docker run --rm -it ${IMAGE_NAME}:${VERSION} bash
+bash:
+	docker run --rm -it --entrypoint bash ${IMAGE_NAME}:${VERSION}
 
 example_setup:
-	docker run --rm -v `pwd`/src:/work/app/src ${IMAGE_NAME}:${VERSION} create --bare /work/app/src --release ${VERSION}
+	docker run --rm -v `pwd`/src:/work/app/src ${IMAGE_NAME}:${VERSION} create --release ${VERSION} /work/app/src
 	docker run --rm -v `pwd`/src:/work/app/src ${IMAGE_NAME}:${VERSION} npm install
 	docker run --rm -v `pwd`/src:/work/app/src ${IMAGE_NAME}:${VERSION} npm rebuild
 
