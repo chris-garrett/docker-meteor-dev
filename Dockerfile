@@ -17,7 +17,8 @@ RUN set -x \
   && mkdir -p /work/app/src /work/libs /work/npm \
   && echo "prefix = /work/npm" > /home/sprout/.npmrc \
   && chown -R sprout:sprout /home/sprout /work \
-	&& echo fs.inotify.max_user_watches=524288 > /etc/sysctl.d/increase-watches.conf
+	&& echo fs.inotify.max_user_watches=524288 > /etc/sysctl.d/increase-watches.conf \
+	&& sysctl -p
 
 ENV LANG en_US.utf8
 ENV METEOR_LOG=debug
