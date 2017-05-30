@@ -18,3 +18,7 @@ example_setup:
 
 example_run:
 	docker run --rm -v `pwd`/src:/work/app/src ${IMAGE_NAME}:${VERSION}
+
+example_clean:
+	rm -fr src/* src/.meteor/ src/.gitignore
+
