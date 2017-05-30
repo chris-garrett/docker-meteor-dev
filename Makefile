@@ -1,5 +1,5 @@
 
-VERSION=1.3.5.1
+VERSION=1.4.4.3
 IMAGE_NAME=chrisgarrett/meteor-dev
 
 build:
@@ -17,8 +17,7 @@ example_setup:
 	docker run --rm -v `pwd`/src:/work/app/src ${IMAGE_NAME}:${VERSION} npm rebuild
 
 example_run:
-	docker run --rm -v `pwd`/src:/work/app/src ${IMAGE_NAME}:${VERSION}
+	docker run --rm -p 3000:3000 -v `pwd`/src:/work/app/src ${IMAGE_NAME}:${VERSION}
 
 example_clean:
 	rm -fr src/* src/.meteor/ src/.gitignore
-
