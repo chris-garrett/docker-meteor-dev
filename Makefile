@@ -1,5 +1,5 @@
 
-VERSION=1.5.2.2
+VERSION=1.6.0.1
 IMAGE_NAME=chrisgarrett/meteor-dev
 
 build:
