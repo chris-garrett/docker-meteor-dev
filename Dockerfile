@@ -9,6 +9,13 @@ RUN set -x \
     vim \
     locales \
     git \
+    make \ 
+    build-essential \ 
+    automake \ 
+    autoconf \ 
+    nasm \ 
+    python \ 
+    libpng-dev \ 
   && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
   && rm -rf /var/lib/apt/lists/* \
   && groupadd --gid 1000 sprout \
@@ -28,7 +35,7 @@ USER sprout
 
 RUN set -x \
   && curl https://install.meteor.com/ | sh \
-  && METEOR_LOG=debug METEOR_OFFLINE_CATALOG=1 /home/sprout/.meteor/meteor create /work/app/src --release 1.5.2.2 \
+  && METEOR_LOG=debug METEOR_OFFLINE_CATALOG=1 /home/sprout/.meteor/meteor create /work/app/src --release 1.6.0.1 \
   && rm -rf /work/app/src
 
 WORKDIR /work/app/src
