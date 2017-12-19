@@ -10,6 +10,7 @@ RUN set -x \
     locales \
     git \
     make \
+    rake \
     build-essential \
     automake \
     autoconf \
