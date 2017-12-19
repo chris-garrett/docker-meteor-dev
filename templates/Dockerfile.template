@@ -9,13 +9,13 @@ RUN set -x \
     vim \
     locales \
     git \
-    make \ 
-    build-essential \ 
-    automake \ 
-    autoconf \ 
-    nasm \ 
-    python \ 
-    libpng-dev \ 
+    make \
+    build-essential \
+    automake \
+    autoconf \
+    nasm \
+    python \
+    libpng-dev \
   && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
   && rm -rf /var/lib/apt/lists/* \
   && groupadd --gid 1000 sprout \
@@ -27,10 +27,6 @@ RUN set -x \
 	&& echo fs.inotify.max_user_watches=524288 > /etc/sysctl.d/increase-watches.conf \
 	&& sysctl -p
 
-ENV LANG en_US.utf8
-ENV METEOR_LOG=debug
-ENV METEOR_OFFLINE_CATALOG=1
-
 USER sprout
 
 RUN set -x \
@@ -38,6 +34,9 @@ RUN set -x \
   && METEOR_LOG=debug METEOR_OFFLINE_CATALOG=1 /home/sprout/.meteor/meteor create /work/app/src --release ${VERSION} \
   && rm -rf /work/app/src
 
+ENV LANG en_US.utf8
+ENV METEOR_LOG=debug
+ENV METEOR_OFFLINE_CATALOG=1
+ENV PATH /home/sprout/.meteor:$PATH
 WORKDIR /work/app/src
-ENTRYPOINT ["/home/sprout/.meteor/meteor"]
-CMD ["run"]
+CMD ["meteor","run"]
