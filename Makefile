@@ -1,11 +1,16 @@
 
-VERSION=1.6.0.1
+VERSION=1.9.3
 IMAGE_NAME=chrisgarrett/meteor-dev
 
-build:
+.PHONEY: all prep build bash
+
+all: build
+
+prep: 
 	VERSION=${VERSION} envsubst < ./templates/Dockerfile.template > Dockerfile
 	VERSION=${VERSION} envsubst < ./templates/README.md.template > README.md
 
+build: prep
 	docker build --rm=true -t ${IMAGE_NAME}:${VERSION} .
 
 bash:

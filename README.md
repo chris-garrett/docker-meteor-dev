@@ -1,6 +1,6 @@
 ## Versions
 - Ubuntu 16.04
-- Meteor 1.6.0.1
+- Meteor 1.9.3
 
 ## Usage
 
