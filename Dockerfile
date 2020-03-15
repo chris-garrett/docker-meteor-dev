@@ -35,7 +35,7 @@ USER sprout
 
 RUN set -x \
   && curl https://install.meteor.com/ | sh \
-  && METEOR_LOG=debug METEOR_OFFLINE_CATALOG=1 /home/sprout/.meteor/meteor create /work/app/src --release 1.6.0.1 \
+  && METEOR_LOG=debug METEOR_OFFLINE_CATALOG=1 /home/sprout/.meteor/meteor create /work/app/src --release 1.9.3 \
   && rm -rf /work/app/src
 
 WORKDIR /work/app/src
