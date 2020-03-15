@@ -9,8 +9,8 @@ export IMAGE_NAME=chrisgarrett/meteor-dev
 all: build
 
 prep:
-	envsubst < ./templates/Dockerfile.template > Dockerfile
-	envsubst < ./templates/README.md.template > README.md
+	envsubst '$${METEOR_VERSION},$${DOCKERIZE_VERSION},$${IMAGE_VERSION},$${IMAGE_NAME}' < ./templates/Dockerfile.template > Dockerfile
+	envsubst '$${METEOR_VERSION},$${DOCKERIZE_VERSION},$${IMAGE_VERSION},$${IMAGE_NAME}' < ./templates/README.md.template > README.md
 
 build: prep
 	docker build --rm=true -t ${IMAGE_NAME}:${IMAGE_VERSION} .

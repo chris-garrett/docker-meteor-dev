@@ -35,6 +35,7 @@ RUN set -x \
 ENV LANG en_US.utf8
 ENV METEOR_LOG=debug
 ENV METEOR_OFFLINE_CATALOG=1
+ENV PATH="/home/sprout/.meteor:${PATH}"
 
 USER sprout
 
@@ -44,5 +45,4 @@ RUN set -x \
   && rm -rf /work/app/src
 
 WORKDIR /work/app/src
-ENTRYPOINT ["/home/sprout/.meteor/meteor"]
-CMD ["run"]
+CMD ["meteor", "run"]

@@ -28,13 +28,14 @@ RUN set -x \
   && chown -R sprout:sprout /home/sprout /work \
 	&& echo fs.inotify.max_user_watches=524288 > /etc/sysctl.d/increase-watches.conf \
 	&& sysctl -p \
-  && curl -L -O https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-  && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-  && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz  
+  && curl -L -O https://github.com/jwilder/dockerize/releases/download/${DOCKERIZE_VERSION}/dockerize-linux-amd64-${DOCKERIZE_VERSION}.tar.gz \
+  && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-${DOCKERIZE_VERSION}.tar.gz \
+  && rm dockerize-linux-amd64-${DOCKERIZE_VERSION}.tar.gz  
 
 ENV LANG en_US.utf8
 ENV METEOR_LOG=debug
 ENV METEOR_OFFLINE_CATALOG=1
+ENV PATH="/home/sprout/.meteor:${PATH}"
 
 USER sprout
 
@@ -44,5 +45,4 @@ RUN set -x \
   && rm -rf /work/app/src
 
 WORKDIR /work/app/src
-ENTRYPOINT ["/home/sprout/.meteor/meteor"]
-CMD ["run"]
+CMD ["meteor", "run"]
