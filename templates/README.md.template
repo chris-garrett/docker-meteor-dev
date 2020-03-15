@@ -1,19 +1,20 @@
 ## Versions
-- Ubuntu 16.04
-- Meteor ${VERSION}
+- Debian Jess base image
+- Meteor ${IMAGE_VERSION}
+- Dockerise ${DOCKERIZE_VERSION}
 
 ## Usage
 
 Update node modules
 
-`docker run --rm chrisgarrett/meteor-dev npm install`
+`docker run --rm ${IMAGE_NAME}:${IMAGE_VERSION} npm install`
 
 Run meteor
 
-`docker run -d --name meteor -v /home/chris/meteor:/opt/app chrisgarrett/meteor-dev`
+`docker run -d --name meteor -v /home/chris/meteor:/opt/app ${IMAGE_NAME}:${IMAGE_VERSION}`
 
 Running a specific version of meteor
-`docker run -d --name meteor -v /home/chris/meteor:/opt/app chrisgarrett/meteor-dev --release 1.2.1`
+`docker run -d --name meteor -v /home/chris/meteor:/opt/app ${IMAGE_NAME}:${IMAGE_VERSION} --release 1.2.1`
 
 ## Credits
 
