@@ -1,4 +1,6 @@
 FROM debian:jessie
+MAINTAINER Chris Garrett (https://github.com/chris-garrett/docker-meteor-dev)
+LABEL description="Meteor Dev 1.9.3"
 
 USER root
 
@@ -25,7 +27,10 @@ RUN set -x \
   && echo "prefix = /work/npm" > /home/sprout/.npmrc \
   && chown -R sprout:sprout /home/sprout /work \
 	&& echo fs.inotify.max_user_watches=524288 > /etc/sysctl.d/increase-watches.conf \
-	&& sysctl -p
+	&& sysctl -p \
+  && curl -L -O https://github.com/jwilder/dockerize/releases/download/v0.6.1/dockerize-linux-amd64-v0.6.1.tar.gz \
+  && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-v0.6.1.tar.gz \
+  && rm dockerize-linux-amd64-v0.6.1.tar.gz  
 
 ENV LANG en_US.utf8
 ENV METEOR_LOG=debug
